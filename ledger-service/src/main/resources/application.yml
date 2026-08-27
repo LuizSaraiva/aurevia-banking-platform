@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: ledger-service
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ledger_db
+    username: aurevia
+    password: aurevia
+
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
+      connection-timeout: 3000
+
+  jpa:
+    open-in-view: false
+
+    hibernate:
+      ddl-auto: validate
+
+    properties:
+      hibernate:
+        format_sql: true
+
+  flyway:
+    enable: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - info
+          - metrics
+
+server:
+  port: 8081

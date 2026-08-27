@@ -1,0 +1,29 @@
+services:
+
+  postgres:
+    image: postgres:17
+    container_name: aurevia-postgres
+
+    environment:
+      POSTGRES_DB: ledger_db
+      POSTGRES_USER: aurevia
+      POSTGRES_PASSWORD: aurevia
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - aurevia_postgres_data:/var/lib/postgresql/data
+
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready -U aurevia -d ledger_db"
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  aurevia_postgres_data:

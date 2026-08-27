@@ -1,0 +1,34 @@
+# IntelliJ
+.idea/
+*.iml
+
+# Maven
+target/
+**/target/
+
+# Java
+*.class
+*.jar
+*.war
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.*
+
+# Secrets
+*.key
+*.pem
+
+# Local database
+postgres-data/
+
+# VS Code
+.vscode/
